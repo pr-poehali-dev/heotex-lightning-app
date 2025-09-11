@@ -63,6 +63,9 @@ export default function Index() {
     { id: 'cashback', label: 'Кэшбек', icon: 'Percent' },
     { id: 'categories', label: 'Категории', icon: 'Grid3x3' },
     { id: 'history', label: 'История', icon: 'Clock' },
+    { id: 'settings', label: 'Настройки', icon: 'Settings' },
+    { id: 'stores', label: 'Магазины', icon: 'Store' },
+    { id: 'bonuses', label: 'Бонусы', icon: 'Gift' }
   ];
 
   return (
@@ -70,9 +73,7 @@ export default function Index() {
       {/* Header */}
       <div className="flex items-center justify-between p-4 pt-12">
         <div className="flex items-center space-x-3">
-          <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-blue-600">
-            <Icon name="Zap" size={24} className="text-white" />
-          </div>
+          <img src="/img/c95d41bb-d488-41e7-842c-49b0d3ed1d1f.jpg" alt="HeoTex" className="w-10 h-10 rounded-full object-cover" />
           <div>
             <h1 className="text-xl font-bold text-white">HeoTex</h1>
             <p className="text-sm text-gray-300">Кэшбек сервис</p>
@@ -199,18 +200,18 @@ export default function Index() {
 
       {/* Bottom Navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur-lg border-t border-white/10">
-        <div className="flex items-center justify-around py-2">
-          {navigationItems.map((item) => (
+        <div className="grid grid-cols-5 py-2">
+          {navigationItems.slice(0, 5).map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`flex flex-col items-center p-3 rounded-lg transition-colors ${
+              className={`flex flex-col items-center p-2 rounded-lg transition-colors ${
                 activeTab === item.id 
                   ? 'text-blue-400 bg-blue-500/10' 
                   : 'text-gray-400 hover:text-white'
               }`}
             >
-              <Icon name={item.icon as any} size={20} />
+              <Icon name={item.icon as any} size={18} />
               <span className="text-xs mt-1 font-medium">{item.label}</span>
             </button>
           ))}
@@ -218,11 +219,12 @@ export default function Index() {
       </div>
 
       {/* Push notification trigger for demo */}
-      <div className="fixed top-20 right-4">
+      <div className="fixed top-20 right-4 z-50">
         <Button
           onClick={() => showNotification(notifications[Math.floor(Math.random() * notifications.length)])}
           className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
           size="sm"
+          title="Тестировать push-уведомления"
         >
           <Icon name="Zap" size={16} />
         </Button>
