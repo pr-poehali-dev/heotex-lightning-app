@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
+import ProductCard from '@/components/ProductCard';
 import Icon from '@/components/ui/icon';
 import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 
 interface Product {
   id: number;
@@ -21,12 +20,12 @@ const Products: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const products: Product[] = [
-    { id: 1, name: 'Молоко 3.2% 1л', price: '89₽', stock: 24, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg' },
-    { id: 2, name: 'Хлеб белый', price: '45₽', stock: 3, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg', status: 'low' },
-    { id: 3, name: 'Яйца С1 10шт', price: '129₽', stock: 0, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg', status: 'out' },
-    { id: 4, name: 'Сыр российский', price: '245₽', stock: 15, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg' },
-    { id: 5, name: 'Масло сливочное', price: '189₽', stock: 8, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg' },
-    { id: 6, name: 'Йогурт натуральный', price: '67₽', stock: 2, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg', status: 'low' }
+    { id: 1, name: 'Молоко 3.2% 1л', price: '89₽', stock: 24, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/95288e1a-c77f-4bfb-96fd-c22f55969ef2.jpg' },
+    { id: 2, name: 'Хлеб белый', price: '45₽', stock: 3, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/f9ab637e-243e-43a8-a1a8-5d525001b965.jpg', status: 'low' },
+    { id: 3, name: 'Яйца С1 10шт', price: '129₽', stock: 0, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/b31fa237-db15-4f9b-b5a6-a50138979ac4.jpg', status: 'out' },
+    { id: 4, name: 'Сыр российский', price: '245₽', stock: 15, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/25ddbf80-b6b5-410d-8d62-86c1ee446863.jpg' },
+    { id: 5, name: 'Масло сливочное', price: '189₽', stock: 8, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/940de6f3-a6de-4fbe-b4ee-6cc0da96b59f.jpg' },
+    { id: 6, name: 'Йогурт натуральный', price: '67₽', stock: 2, image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/95288e1a-c77f-4bfb-96fd-c22f55969ef2.jpg', status: 'low' }
   ];
 
   const filteredProducts = products.filter(p => {

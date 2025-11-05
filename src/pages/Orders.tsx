@@ -24,8 +24,8 @@ const Orders: React.FC = () => {
       date: '05.11.2025 14:32',
       total: '892₽',
       items: [
-        { name: 'Молоко 3.2%', price: '89₽', image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg' },
-        { name: 'Хлеб белый', price: '45₽', image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg' }
+        { name: 'Молоко 3.2%', price: '89₽', image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/95288e1a-c77f-4bfb-96fd-c22f55969ef2.jpg' },
+        { name: 'Хлеб белый', price: '45₽', image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/f9ab637e-243e-43a8-a1a8-5d525001b965.jpg' }
       ],
       status: 'new',
       progress: 0
