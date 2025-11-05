@@ -23,6 +23,8 @@ const Register: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (isPasswordValid && passwordsMatch && agreedToTerms) {
+      localStorage.setItem('isAuthenticated', 'true');
+      localStorage.setItem('userEmail', formData.email);
       navigate('/');
     }
   };

@@ -14,7 +14,12 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate('/');
+    
+    if (email && password) {
+      localStorage.setItem('isAuthenticated', 'true');
+      localStorage.setItem('userEmail', email);
+      navigate('/');
+    }
   };
 
   return (
@@ -22,8 +27,8 @@ const Login: React.FC = () => {
       <div className="w-full max-w-md">
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00BFFF] to-[#007BFF] flex items-center justify-center shadow-[0_0_20px_rgba(0,191,255,0.4)]">
-              <Icon name="Home" size={24} className="text-white" />
+            <div className="w-14 h-16 rounded-xl bg-gradient-to-br from-[#007BFF] to-[#003D80] flex items-center justify-center shadow-[0_0_20px_rgba(0,191,255,0.4)]">
+              <Icon name="DoorOpen" size={32} className="text-white" />
             </div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-[#00BFFF] to-[#007BFF] bg-clip-text text-transparent">
               Next Door

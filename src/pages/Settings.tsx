@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
 import Icon from '@/components/ui/icon';
@@ -8,8 +9,15 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 const Settings: React.FC = () => {
+  const navigate = useNavigate();
   const [notifications, setNotifications] = React.useState(true);
   const [twoFactor, setTwoFactor] = React.useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('userEmail');
+    navigate('/login');
+  };
 
   return (
     <div className="min-h-screen bg-[#121212] pb-20">
@@ -114,7 +122,10 @@ const Settings: React.FC = () => {
           </Card>
         </div>
 
-        <Button className="w-full mt-8 bg-[#FF4D4D] hover:bg-[#FF3333] text-white">
+        <Button 
+          onClick={handleLogout}
+          className="w-full mt-8 bg-[#FF4D4D] hover:bg-[#FF3333] text-white"
+        >
           <Icon name="LogOut" size={20} className="mr-2" />
           Выйти из аккаунта
         </Button>
