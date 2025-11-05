@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
+import OrderCard from '@/components/OrderCard';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
 
 interface Order {
   id: string;
@@ -92,43 +91,16 @@ const Orders: React.FC = () => {
 
         <div className="space-y-4">
           {filteredOrders.map((order) => (
-            <Card key={order.id} className="bg-[#1A1A1A] border-[#333]">
-              <CardContent className="p-4">
-                <div className="flex justify-between items-start mb-3">
-                  <div>
-                    <h3 className="text-[#007BFF] font-bold text-lg">{order.id}</h3>
-                    <p className="text-[#E0E0E0] text-sm">{order.date}</p>
-                  </div>
-                  <p className="text-white font-bold text-xl">{order.total}</p>
-                </div>
-
-                <div className="space-y-2 mb-3">
-                  {order.items.map((item, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <img src={item.image} alt={item.name} className="w-10 h-10 object-cover rounded" />
-                      <div className="flex-1">
-                        <p className="text-white text-sm">{item.name}</p>
-                        <p className="text-[#007BFF] text-xs">{item.price}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-[#E0E0E0] text-sm">Статус</span>
-                    <span className="text-[#007BFF] text-sm font-medium">{order.progress}%</span>
-                  </div>
-                  <Progress value={order.progress} className="h-2 bg-[#2A2A2A]" />
-                </div>
-
-                {order.status === 'processing' && (
-                  <Button className="w-full mt-4 bg-[#007BFF] hover:bg-[#0056B3] text-white">
-                    Подтвердить выполнение
-                  </Button>
-                )}
-              </CardContent>
-            </Card>
+            <OrderCard
+              key={order.id}
+              id={order.id}
+              date={order.date}
+              total={order.total}
+              items={order.items}
+              status={order.status}
+              progress={order.progress}
+              onConfirm={() => console.log('Order confirmed:', order.id)}
+            />
           ))}
 
           {filteredOrders.length === 0 && (
