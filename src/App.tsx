@@ -3,7 +3,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -16,6 +17,128 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const pageVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 }
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.3
+};
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/login" element={
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <Login />
+          </motion.div>
+        } />
+        <Route path="/register" element={
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <Register />
+          </motion.div>
+        } />
+        <Route path="/" element={
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <Dashboard />
+          </motion.div>
+        } />
+        <Route path="/products" element={
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <Products />
+          </motion.div>
+        } />
+        <Route path="/orders" element={
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <Orders />
+          </motion.div>
+        } />
+        <Route path="/analytics" element={
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <Analytics />
+          </motion.div>
+        } />
+        <Route path="/settings" element={
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <Settings />
+          </motion.div>
+        } />
+        <Route path="/admin" element={
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <AdminPanel />
+          </motion.div>
+        } />
+        <Route path="*" element={
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <NotFound />
+          </motion.div>
+        } />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -23,17 +146,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/analytics" element={<Analytics />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/admin" element={<AdminPanel />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatedRoutes />
         </BrowserRouter>
       </div>
     </TooltipProvider>

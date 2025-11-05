@@ -23,13 +23,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, stock, image, ca
   };
 
   return (
-    <Card className="bg-[#1A1A1A] border-[#333] overflow-hidden hover:border-[#007BFF] transition-all duration-300 hover:shadow-lg hover:shadow-[#007BFF]/20">
+    <Card className="bg-[#1A1A1A] border-[#333] overflow-hidden hover:border-[#007BFF] transition-all duration-300 hover:shadow-lg hover:shadow-[#007BFF]/20 hover:scale-105 group">
       <CardContent className="p-0">
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <img 
             src={image} 
             alt={name} 
-            className="w-full h-40 object-cover"
+            className="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500"
           />
           {category && (
             <Badge className="absolute top-2 right-2 bg-[#007BFF]/90 text-white border-none">

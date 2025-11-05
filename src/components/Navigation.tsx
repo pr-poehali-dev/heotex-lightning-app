@@ -22,12 +22,15 @@ const Navigation: React.FC = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`flex flex-col items-center justify-center gap-1 flex-1 transition-colors ${
-                isActive ? 'text-[#007BFF]' : 'text-[#888]'
+              className={`relative flex flex-col items-center justify-center gap-1 flex-1 transition-all duration-300 ${
+                isActive ? 'text-[#007BFF] scale-110' : 'text-[#888] hover:text-[#007BFF] hover:scale-105'
               }`}
             >
               <Icon name={item.icon} size={22} />
               <span className="text-[10px] font-medium">{item.label}</span>
+              {isActive && (
+                <div className="absolute bottom-0 w-12 h-1 bg-[#007BFF] rounded-t-full animate-in fade-in slide-in-from-bottom-2 duration-300" />
+              )}
             </Link>
           );
         })}
