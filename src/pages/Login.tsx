@@ -118,16 +118,37 @@ const Login: React.FC = () => {
           </div>
         </form>
 
-        <div className="mt-8 text-center">
-          <p className="text-[#E0E0E0] text-sm">
-            Нет аккаунта?{' '}
+        <div className="mt-8 space-y-4">
+          <div className="text-center">
+            <p className="text-[#E0E0E0] text-sm">
+              Нет аккаунта?{' '}
+              <button
+                onClick={() => navigate('/register')}
+                className="text-[#00BFFF] font-semibold hover:underline"
+              >
+                Зарегистрироваться
+              </button>
+            </p>
+          </div>
+          
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-[#333]"></div>
+            </div>
+            <div className="relative flex justify-center text-xs">
+              <span className="px-2 bg-[#121212] text-[#888]">для сотрудников</span>
+            </div>
+          </div>
+          
+          <div className="text-center">
             <button
-              onClick={() => navigate('/register')}
-              className="text-[#00BFFF] font-semibold hover:underline"
+              onClick={() => navigate('/admin/login')}
+              className="inline-flex items-center gap-2 text-white bg-[#1A1A1A] hover:bg-[#2A2A2A] px-4 py-2 rounded-lg border border-[#333] transition-all"
             >
-              Зарегистрироваться
+              <Icon name="ShieldCheck" size={18} />
+              <span className="text-sm">Вход для администратора</span>
             </button>
-          </p>
+          </div>
         </div>
       </div>
     </div>
