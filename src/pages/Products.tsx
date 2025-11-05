@@ -75,27 +75,15 @@ const Products: React.FC = () => {
           </Button>
         </div>
 
-        <div className="space-y-3">
+        <div className="grid grid-cols-2 gap-4">
           {filteredProducts.map((product) => (
-            <Card key={product.id} className="bg-[#1A1A1A] border-[#333]">
-              <CardContent className="p-3 flex items-center gap-3">
-                <img src={product.image} alt={product.name} className="w-20 h-20 object-cover rounded-lg" />
-                
-                <div className="flex-1">
-                  <h3 className="text-white font-medium mb-1">{product.name}</h3>
-                  <p className="text-[#007BFF] font-bold text-xl mb-1">{product.price}</p>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[#E0E0E0] text-sm">Остаток: {product.stock} шт</span>
-                    {product.status === 'low' && (
-                      <Badge className="bg-orange-500/20 text-orange-400 border-orange-500 text-xs">Мало</Badge>
-                    )}
-                    {product.status === 'out' && (
-                      <Badge className="bg-[#FF4D4D]/20 text-[#FF4D4D] border-[#FF4D4D] text-xs">Нет</Badge>
-                    )}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <ProductCard
+              key={product.id}
+              name={product.name}
+              price={product.price}
+              stock={product.stock}
+              image={product.image}
+            />
           ))}
         </div>
 

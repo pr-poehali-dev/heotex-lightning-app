@@ -35,8 +35,8 @@ const Orders: React.FC = () => {
       date: '05.11.2025 13:18',
       total: '1 245₽',
       items: [
-        { name: 'Яйца С1 10шт', price: '129₽', image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg' },
-        { name: 'Сыр российский', price: '245₽', image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg' }
+        { name: 'Яйца С1 10шт', price: '129₽', image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/b31fa237-db15-4f9b-b5a6-a50138979ac4.jpg' },
+        { name: 'Сыр российский', price: '245₽', image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/25ddbf80-b6b5-410d-8d62-86c1ee446863.jpg' }
       ],
       status: 'processing',
       progress: 65
@@ -46,7 +46,7 @@ const Orders: React.FC = () => {
       date: '05.11.2025 12:05',
       total: '567₽',
       items: [
-        { name: 'Масло сливочное', price: '189₽', image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/53a6557c-d186-4092-9619-6c6953e99105.jpg' }
+        { name: 'Масло сливочное', price: '189₽', image: 'https://cdn.poehali.dev/projects/4f748fcb-1eff-4c8d-8547-4a6db6814996/files/940de6f3-a6de-4fbe-b4ee-6cc0da96b59f.jpg' }
       ],
       status: 'completed',
       progress: 100
